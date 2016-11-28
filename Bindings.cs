@@ -31,7 +31,7 @@ public class Bindings : MonoBehaviour {
 		allBindings = new List<Binding>();
     }
 
-    public void addBinding(Binding binding, bool auto = false)
+    public void AddBinding(Binding binding, bool auto = false)
 	{
 		if (allBindings.Contains(binding))
 			return;
@@ -40,14 +40,14 @@ public class Bindings : MonoBehaviour {
 		allBindings.Add(binding);
 	}
 
-	public void removeBinding(Binding binding)
+	public void RemoveBinding(Binding binding)
 	{
 		removeFromList(allBindings, binding);
 		removeFromList(autoBindings, binding);
 		removeFromList(invalidBindings, binding);
 	}
 
-	public void invalid(object source, string propertyName)
+	public void Invalid(object source, string propertyName)
 	{
 		List<Binding> list = findBindings(source, propertyName);
 		foreach (var item in list)
