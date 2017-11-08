@@ -18,7 +18,7 @@ public class Bindings : MonoBehaviour {
 			if (_instance == null)
 			{
 				_instance = FindObjectOfType(typeof(Bindings)) as Bindings;
-				_instance.init();
+				if (_instance) _instance.init();
 			}
 			return _instance;
 		}
@@ -33,7 +33,7 @@ public class Bindings : MonoBehaviour {
 
     public void AddBinding(Binding binding, bool auto = false)
 	{
-		if (allBindings.Contains(binding))
+		if (allBindings.Find(b => b == binding) != null)
 			return;
 		List<Binding> list = auto ? autoBindings : invalidBindings;
 		list.Add(binding);
