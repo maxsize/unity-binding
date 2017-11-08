@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -85,6 +85,7 @@ public class Bindings : MonoBehaviour {
     {
 		applyList(autoBindings);
 		applyList(invalidBindings);
+		invalidBindings.Clear();
     }
 
     private void applyList(List<Binding> list)
