@@ -30,6 +30,7 @@ public class Binding : Object
             try
             {
                 object newValue = getValue(fromValue, fromPropertyName);
+                oldValue = newValue;
                 while (true)
                 {
                     if (applyProperty(newValue)) break;
@@ -51,7 +52,9 @@ public class Binding : Object
     {
         get
         {
-            return getValue(fromValue, fromPropertyName) != oldValue;
+            var current = getValue(fromValue, fromPropertyName);
+            var equal = current.Equals(oldValue);
+            return !equal;
         }
     }
 
